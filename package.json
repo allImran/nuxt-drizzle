@@ -11,9 +11,11 @@
     "db:generate": "drizzle-kit generate"
   },
   "dependencies": {
+    "@tailwindcss/vite": "^4.1.10",
     "better-sqlite3": "^12.1.0",
     "drizzle-orm": "^0.44.2",
     "nuxt": "^3.17.5",
+    "tailwindcss": "^4.1.10",
     "vue": "^3.5.17",
     "vue-router": "^4.5.1"
   },
