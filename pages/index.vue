@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onMounted } from 'vue';
-const { active, dbNames, setActive, setDbNames } = getDbNameInfo();
+const { active, dbNames, handleAddDB,setActive, setDbNames } = useDbCrud();
 onMounted(async() => {
   await setDbNames();
 })
@@ -8,7 +8,7 @@ onMounted(async() => {
 <template>
     <div class="p-10 flex gap-10">
         <div class=" w-1/2 space-y-4">
-            <button class="bg-amber-500 text-white p-2 rounded  ">Add DB</button>
+            <button @click="handleAddDB" class="bg-amber-500 text-white p-2 rounded  ">Add DB</button>
             <div class="flex flex-wrap gap-10">
                 <DbListing :active="active" :dbNames="dbNames">
                     <template #default="{isActive, dbName}">
