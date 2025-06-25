@@ -4,5 +4,6 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
     databaseUrl: process.env.DATABASE_URL || 'file:./server/database/db.sqlite',
+    sqliteDatabasePath: process.env.SQLITE_DATABASE_PATH || 'db/',
   }
 })
