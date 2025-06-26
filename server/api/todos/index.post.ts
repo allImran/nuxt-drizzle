@@ -1,7 +1,7 @@
 export default eventHandler(async (event) => {
-  const { title } = await readBody(event)
+  const { title, dbName } = await readBody(event)
 
-  const todo = await useDrizzle().insert(tables.todos).values({
+  const todo = (await useDrizzle(dbName)).insert(tables.todos).values({
     title,
     createdAt: new Date()
   }).returning().get()

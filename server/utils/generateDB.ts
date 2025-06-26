@@ -24,6 +24,7 @@ export async function generateDatabase(dbPath: string) {
     
     // Create a new SQLite database file (file is created when Database is instantiated)
     const sqlite = new Database(dbPath);
+    migrateToPath(dbPath);
     sqlite.close();
     
     console.log('Database file created successfully');

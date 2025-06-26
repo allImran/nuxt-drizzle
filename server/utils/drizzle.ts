@@ -3,8 +3,9 @@ import Database from 'better-sqlite3'
 import * as schema from '../database/schema'
 export const tables = schema
 
-export async function useDrizzle() {
-    const sqlite = new Database('sqlite.db')
+export async function useDrizzle(dbName: string) {
+    const { sqliteDatabasePath } = useRuntimeConfig()
+    const sqlite = new Database(sqliteDatabasePath+dbName)
     const db = drizzle(sqlite, { schema })
     return db
 }
